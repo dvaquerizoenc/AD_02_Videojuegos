@@ -1,5 +1,6 @@
 package interfaz;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import modelo.entidad.Usuario;
@@ -64,7 +65,16 @@ public class InterfazPrograma {
 			case 1:
 				darAltaUsuario();
 				break;
+				
+			case 2:
+				darAltaVideojuego();
+				break;
+			
+			case 3:
+				listarVideojuegos();
+				break;
 			}
+			
 		}while(opcion != 0);
 	}
 
@@ -108,6 +118,17 @@ public class InterfazPrograma {
 			break;
 		}
 	}
+	
+	private void listarVideojuegos() {
+		GestorVideojuego gVideojuego = new GestorVideojuego();
+		try {
+			ArrayList<String> listaVJ = gVideojuego.getListaVideojuegos();
+			System.out.println(listaVJ);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
 
 	private int menu() {
 		boolean correcto = false;
@@ -119,7 +140,7 @@ public class InterfazPrograma {
 			System.out.println("1 - Registrar usuario");
 			System.out.println("0 - Salir del programa");
 			opcion = sc.nextInt();
-			if(opcion >= 0 && opcion <= 1) {
+			if(opcion >= 0 && opcion <= 3) {
 				correcto = true;
 			}
 		}		
@@ -138,14 +159,16 @@ public class InterfazPrograma {
 	}
 	
 	private Videojuego pedirDatosVideojuego() {
-		System.out.println("Introduzca el nombre: ");
+		System.out.println("Introduzca el nombre del videojuego: ");
 		String nombre = scString.nextLine();
-		System.out.println("Introduzca el password: ");
-		String pass = scString.nextLine();
+		System.out.println("Introduzca la compañia: ");
+		String compañia = scString.nextLine();
+		System.out.println("Introduzca la nota: ");
+		String nota = scString.nextLine();
 		Videojuego v = new Videojuego();
-		v.setNombre("gta");
-		v.setCompañia("Rockstar");
-		v.setNota("6");
+		v.setNombre(nombre);
+		v.setCompañia(compañia);
+		v.setNota(nota);
 		return v;
 	}
 }
