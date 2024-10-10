@@ -24,18 +24,18 @@ public class InterfazVideojuego {
 
 		while (contador < 3 && !validado) {
 			videojuego = pedirDatos();
-			respuesta = gv.validar(videojuego);
+			respuesta = gv.validarVideojuego(videojuego);
 			switch (respuesta) {
 			case 0:
-				System.out.println("Usuario no existe");
+				System.out.println("Videojuego no existe");
 				break;
 			case 1:
-				System.out.println("Usuario correcto, bienvenido a la app");
+				System.out.println("Videojuego correcto, bienvenido a la app");
 				validado = true;
 				iniciarAplicacion(videojuego);
 				break;
 			case 2:
-				System.out.println("Usuario y/o password incorrectos");
+				System.out.println("Videojuego incorrectos");
 				contador++;
 				break;
 			case 666:
@@ -52,25 +52,25 @@ public class InterfazVideojuego {
 
 	private void iniciarAplicacion(Videojuego v) {
 		System.out.println("--------------------------");
-		System.out.println("Perfil de " + v.getNombre());
+		System.out.println("Videojuego" + v.getNombre());
 		System.out.println("--------------------------");
 		int opcion = 0;
 		do {
 			opcion = menu();
 			switch (opcion) {
 			case 1:
-				darAltaUsuario();
+				darAltaVideojuego();
 				break;
 			}
 		}while(opcion != 0);
 	}
 
-	private void darAltaUsuario() {
+	private void darAltaVideojuego() {
 		Videojuego videojuego = pedirDatos();
-		int respuesta = gv.guardar(videojuego);
+		int respuesta = gv.guardarVideojuego(videojuego);
 		switch (respuesta) {
 		case 1:
-			System.out.println("Usuario en blanco o con solo espacios en blanco");
+			System.out.println("Nombre del Videojuego en blanco o con solo espacios en blanco");
 			break;
 		case 2:
 			System.out.println("Compañia en blanco o con solo espacios en blanco");
@@ -79,7 +79,7 @@ public class InterfazVideojuego {
 			System.out.println("Nota en blanco o con solo espacios en blanco");
 			break;
 		case 4:
-			System.out.println("Usuario guardado con exito!! :) :)");
+			System.out.println("Videojuego guardado con exito!! :) :)");
 			break;
 		case 0:
 			System.out.println("Error de acceso. Intentelo mas tarde. Codigo 666");
@@ -92,7 +92,7 @@ public class InterfazVideojuego {
 		int opcion = 0;
 		while(!correcto) {
 			System.out.println("Elija una opción: ");
-			System.out.println("1 - Registrar usuario");
+			System.out.println("1 - Registrar Videojuego");
 			System.out.println("0 - Salir del programa");
 			opcion = sc.nextInt();
 			if(opcion >= 0 && opcion <= 1) {
