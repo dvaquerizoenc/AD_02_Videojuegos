@@ -24,7 +24,7 @@ public class InterfazVideojuego {
 
 		while (contador < 3 && !validado) {
 			videojuego = pedirDatos();
-			respuesta = gv.validar(videojuego);
+			respuesta = gv.validarVideojuego(videojuego);
 			switch (respuesta) {
 			case 0:
 				System.out.println("Usuario no existe");
@@ -67,7 +67,7 @@ public class InterfazVideojuego {
 
 	private void darAltaUsuario() {
 		Videojuego videojuego = pedirDatos();
-		int respuesta = gv.guardar(videojuego);
+		int respuesta = gv.guardarVideojuego(videojuego);
 		switch (respuesta) {
 		case 1:
 			System.out.println("Usuario en blanco o con solo espacios en blanco");
@@ -92,6 +92,8 @@ public class InterfazVideojuego {
 		int opcion = 0;
 		while(!correcto) {
 			System.out.println("Elija una opción: ");
+			System.out.println("3 - Listar videojuegos");
+			System.out.println("2 - Registrar videojuego");
 			System.out.println("1 - Registrar usuario");
 			System.out.println("0 - Salir del programa");
 			opcion = sc.nextInt();
