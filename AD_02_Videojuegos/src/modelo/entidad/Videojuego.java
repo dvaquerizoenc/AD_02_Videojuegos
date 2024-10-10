@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Videojuego {
 	private String nombre="";
 	private String compañia="";
-	private double nota=0.0;
+	private String nota="";
 	
 	public String getNombre() {
 		return nombre;
@@ -23,11 +23,11 @@ public class Videojuego {
 		this.compañia = compañia;
 	}
 	
-	public double getNota() {
+	public String getNota() {
 		return nota;
 	}
 	
-	public void setNota(double nota) {
+	public void setNota(String nota) {
 		this.nota = nota;
 	}
 
@@ -46,6 +46,11 @@ public class Videojuego {
 			return false;
 		Videojuego other = (Videojuego) obj;
 		return Objects.equals(nombre, other.nombre);
+	}
+
+	@Override
+	public String toString() {
+		return nombre + "_" + compañia + "_" + nota;
 	}
 	
 	
