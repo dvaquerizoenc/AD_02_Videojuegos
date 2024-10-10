@@ -19,7 +19,7 @@ public class DaoVideojuegoFichero {
 	 * @return listadoVJ, es un listado 
 	 * @throws Exception
 	 */
-	public ArrayList<String> getListaVideojuegos() throws Exception{
+	public ArrayList<String> getListaVideojuegosdao() throws Exception{
 		ArrayList<String> listadoVJ = new ArrayList<String>();
 		
 		try(FileReader fr = new FileReader(NOMBRE_FICHERO);
@@ -31,6 +31,34 @@ public class DaoVideojuegoFichero {
 			}
 			return listadoVJ;
 		} catch (Exception e) {
+			throw e;
+		}
+	}
+	
+	
+	
+	public Videojuego getByNameVideojuego(String nombre) throws Exception{
+		Videojuego videojuego = null;
+		
+		try(FileReader fr = new FileReader(NOMBRE_FICHERO);
+			BufferedReader br = new BufferedReader(fr)){
+			String cadena = br.readLine();//USUARIO/PASSWORD
+			while(cadena != null) {
+				String[] cadenaPartida = cadena.split("_");
+				String nombreVideojuego = cadenaPartida[0];
+				String compañiaVideojuego = cadenaPartida[1];
+				String notaVideojuego = cadenaPartida[2];
+				if(nombre.equals(nombreVideojuego)){
+					videojuego = new Videojuego();
+					videojuego.setNombre(nombreVideojuego);
+					videojuego.setCompañia(compañiaVideojuego);
+					videojuego.setNombre(notaVideojuego);
+					return videojuego;
+				}
+				cadena = br.readLine();
+			}
+			return null;
+		}catch(Exception e) {
 			throw e;
 		}
 	}
