@@ -123,7 +123,10 @@ public class InterfazPrograma {
 		GestorVideojuego gVideojuego = new GestorVideojuego();
 		try {
 			ArrayList<String> listaVJ = gVideojuego.getListaVideojuegos();
-			System.out.println(listaVJ);
+			
+			for(String e : listaVJ) {
+				System.out.println(e);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
