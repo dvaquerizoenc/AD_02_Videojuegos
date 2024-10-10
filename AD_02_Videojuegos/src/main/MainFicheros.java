@@ -1,11 +1,11 @@
 package main;
 
-import interfaz.InterfazUsuario;
+import interfaz.InterfazPrograma;
 
 public class MainFicheros {
 
 	public static void main(String[] args) {
-		new InterfazUsuario().mostrarInterfaz();
+		new InterfazPrograma().mostrarInterfaz();
 	}
 
 }

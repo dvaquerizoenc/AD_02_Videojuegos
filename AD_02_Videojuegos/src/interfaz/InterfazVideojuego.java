@@ -23,7 +23,7 @@ public class InterfazVideojuego {
 		boolean validado = false;
 
 		while (contador < 3 && !validado) {
-			videojuego = pedirDatos();
+			videojuego = pedirDatosVideojuego();
 			respuesta = gv.validarVideojuego(videojuego);
 			switch (respuesta) {
 			case 0:
@@ -66,7 +66,7 @@ public class InterfazVideojuego {
 	}
 
 	private void darAltaVideojuego() {
-		Videojuego videojuego = pedirDatos();
+		Videojuego videojuego = pedirDatosVideojuego();
 		int respuesta = gv.guardarVideojuego(videojuego);
 		switch (respuesta) {
 		case 1:
@@ -92,8 +92,6 @@ public class InterfazVideojuego {
 		int opcion = 0;
 		while(!correcto) {
 			System.out.println("Elija una opción: ");
-			System.out.println("3 - Listar videojuego");
-			System.out.println("2 - Registrar videojuego");
 			System.out.println("1 - Registrar usuario");
 			System.out.println("0 - Salir del programa");
 			opcion = sc.nextInt();
@@ -104,7 +102,7 @@ public class InterfazVideojuego {
 		return opcion;
 	}
 
-	private Videojuego pedirDatos() {
+	private Videojuego pedirDatosVideojuego() {
 		System.out.println("Introduzca el nombre: ");
 		String nombre = scString.nextLine();
 		System.out.println("Introduzca el password: ");
